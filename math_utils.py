@@ -1,3 +1,4 @@
+
 def factorial(n):
     if not isinstance(n, int):
         raise TypeError('Input must be an integer')
