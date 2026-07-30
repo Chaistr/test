@@ -1,3 +1,5 @@
+> 中文版本请见 [README_zh.md](README_zh.md)
+
 # Sample Application
 
 A sample Python application with layered entry points, CLI argument parsing, and utility modules.  
