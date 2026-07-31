@@ -3,7 +3,7 @@
 # Sample Application
 
 A sample Python application with layered entry points, CLI argument parsing, and utility modules.  
-It demonstrates a simple structure for building command-line tools with Python.
+It demonstrates a simple structure for building command-line tools with Python and includes a classic Snake game.
 
 ## Installation
 
@@ -22,9 +22,26 @@ It demonstrates a simple structure for building command-line tools with Python.
 
 ## Usage
 
-Run the main entry point:
+### Snake Game
+
+Run the classic Snake game:
+
 ```bash
-python main.py --name YourName
+python main.py
+```
+
+**Controls:**
+- **Arrow keys** or **WASD** to move the snake
+- **Q** to quit the game
+
+The snake moves on a 20×15 board. Eat the `*` (food) to grow and increase your score. Colliding with walls or your own body ends the game.
+
+### CLI Tool
+
+Run the command-line example tool:
+
+```bash
+python app.py --name YourName
 ```
 
 Example output:
@@ -44,43 +61,20 @@ python -m __main__ --name Developer
 
 ## Modules
 
+### `main.py`
+Entry point for the Snake game. Handles keyboard input, rendering, and the main game loop.
+
+### `snake.py`
+Defines the `Snake` class, including movement, growth, collision detection, and direction control.
+
 ### `app.py`
 Core application module. Contains the `run_app(args)` function which prints a welcome message and the received arguments.
 
 ### `cli.py`
-Command-line interface module using `argparse`. Provides `parse_args(args=None)` to parse command-line arguments like `--name` and `--verbose`.
+Command-line interface module using `argparse`. Provides `parse_args(args=None)` for parsing `--name` and `--verbose`.
+
+### `__main__.py`
+Enables `python -m` execution by importing `main` from `main.py` and calling it.
 
 ### `math_utils.py`
-Utility module for mathematical functions.
-
-#### `factorial(n)`
-Returns the factorial of `n`. Raises `TypeError` if `n` is not an integer, and `ValueError` if `n` is negative.
-
-Example:
-```python
-from math_utils import factorial
-
-print(factorial(5))  # Output: 120
-print(factorial(0))  # Output: 1
-```
-
-### `snake.py`
-Implements the `Snake` class for a classic snake game. The class manages the snake's body, movement, growth, collision detection, and direction changes.
-
-Basic usage:
-```python
-from snake import Snake
-
-snake = Snake(start_x=5, start_y=5, length=3)
-snake.move()
-snake.grow()
-snake.change_direction((0, -1))
-if snake.check_collision(width=20, height=20):
-    print("Game Over")
-```
-
-## Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository.
+Utility module containing a `factorial(n)` function with type and value checking.
