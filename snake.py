@@ -1,11 +1,13 @@
 import random
 
-
 class Snake:
     """贪吃蛇类，管理蛇的移动、增长和碰撞检测"""
 
-    def __init__(self, start_x: int, start_y: int, length: int = 3):
+def __init__(self, start_x: int, start_y: int, length: int = 3):
         """初始化蛇，蛇身用列表表示，蛇头在列表末尾"""
+        self.start_x = start_x
+        self.start_y = start_y
+        self.length = length
         self.body = [(start_x - i, start_y) for i in range(length)]
         self.direction = (1, 0)  # 初始向右
         self.grow_flag = False
@@ -50,3 +52,10 @@ class Snake:
 
     def get_body(self) -> list:
         """返回蛇身坐标列表"""
+        return self.body
+
+    def reset(self):
+        """重置蛇到初始状态"""
+        self.body = [(self.start_x - i, self.start_y) for i in range(self.length)]
+        self.direction = (1, 0)
+        self.grow_flag = False
