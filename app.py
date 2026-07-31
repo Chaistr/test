@@ -1,5 +1,8 @@
 """Core application module."""
 
+import sys
+from cli import parse_args
+
 
 def run_app(args):
     """Main entry point for the application.
@@ -14,3 +17,6 @@ def run_app(args):
 
 if __name__ == "__main__":
     # This allows running the app directly for simple testing,
+    # or as a standalone script with command-line arguments.
+    args = parse_args(sys.argv[1:])
+    run_app(args)

@@ -3,7 +3,7 @@ import random
 class Snake:
     """贪吃蛇类，管理蛇的移动、增长和碰撞检测"""
 
-def __init__(self, start_x: int, start_y: int, length: int = 3):
+    def __init__(self, start_x: int, start_y: int, length: int = 3):
         """初始化蛇，蛇身用列表表示，蛇头在列表末尾"""
         self.start_x = start_x
         self.start_y = start_y

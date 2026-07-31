@@ -25,3 +25,6 @@ def parse_args(args=None):
     parser.add_argument(
         "--verbose",
         action="store_true",
+        help="Enable verbose output",
+    )
+    return parser.parse_args(args)
